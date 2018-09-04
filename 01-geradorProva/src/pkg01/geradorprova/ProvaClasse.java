@@ -5,20 +5,76 @@
  */
 package pkg01.geradorprova;
 
+import java.util.ArrayList;
+
 public class ProvaClasse {
+
+    public Discursiva[] getDiscursivas() {
+        return discursivas;
+    }
+
+    public void setDiscursivas(Discursiva[] discursivas) {
+        this.discursivas = discursivas;
+    }
+
+    public Objetiva[] getObjetivas() {
+        return objetivas;
+    }
+
+    public void setObjetivas(Objetiva[] objetivas) {
+        this.objetivas = objetivas;
+    }
 
     private String nomeDisciplina;
     private int peso;
     private String local = "Lab 3 - Bloco B6";
     private String data = "amanha eu te conto";
-
-    public ProvaClasse(String nomeDisciplina) {
-        this.nomeDisciplina = nomeDisciplina;
-        this.peso = 10;
+    private Discursiva[] discursivas;
+    private Objetiva[] objetivas;
+    
+    
+    public ProvaClasse() {
+        
     }
 
     String obtemDetalhes() {
-        return ("peso: " + String.valueOf(getPeso()) + "\ndata: " + getData() + "\nlocal: " + getLocal() + "\nnome da disciplina: " + getNomeDisciplina());
+        return ("peso: " + String.valueOf(getPeso()) + 
+                "\ndata: " + getData() + 
+                "\nlocal: " + getLocal() + 
+                "\nnome da disciplina: " + getNomeDisciplina());
+    }
+    
+    String obtemProvaImpressao() {
+        System.out.println("Data: " + this.data);
+        System.out.println("Local: " + this.local);
+        System.out.println("Peso: " + this.peso);
+        System.out.println("Disciplina: " + this.getNomeDisciplina());
+        System.out.println("Questoes discursivas: ");
+        int i = 0;
+        while (i < this.discursivas.length) {
+        System.out.println("\n" + this.discursivas[i].getPergunta());
+        System.out.println("criterios: " + this.discursivas[i].getCriteriosCorrecao());
+        System.out.println("peso: " + this.discursivas[i].getPeso());
+        i++;
+        }
+        System.out.println("\nQuestoes objetivas: ");
+        int k = 0;
+        
+        while (k < this.objetivas.length) {
+        
+        System.out.println("\n" + this.objetivas[k].getPergunta());
+        System.out.println("peso: " + this.objetivas[k].getPeso());
+        int j = 0;
+        String opcoes[];
+        while (j<5) {
+           opcoes = this.objetivas[k].getOpcoes();
+           System.out.println("opcao " + j + ": " + opcoes[j]);
+           j++;
+        }
+        k++;
+        }
+       String hello = null;
+       return hello;
     }
 
     public String getNomeDisciplina() {
