@@ -1,21 +1,16 @@
-Data: 1
-Local: 1
-Peso: 1
-Disciplina: 1
+Data: amanha
+Local: univali
+Peso: 10
+Disciplina: poo
 
 Questoes discursivas: 
 
-1
-criterios: Mas tu n quebra
-peso: 1.0
+qual seu nome?
+criterios: acertar seu nome.
+peso: 5.0
+
+qual a data de hoje?
+criterios: acertar a data.
+peso: 5.0
 
 Questoes objetivas: 
-
-ola
-peso: 1.0
-
-opcao 1: marilene
-opcao 2: kk
-opcao 3: eae
-opcao 4: bro
-opcao 5: faz sol
