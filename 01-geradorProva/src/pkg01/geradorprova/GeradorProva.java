@@ -173,7 +173,7 @@ public class GeradorProva {
         }
         prova.setObjetivas(vetorObjetivas);
         System.out.println("\n");
-        prova.obtemProvaImpressao();
+        System.out.println(prova.obtemProvaImpressao());;
     }
     
 }

@@ -24,5 +24,17 @@ public class Objetiva extends Questao {
     public void setRespostaCorreta(int respostaCorreta) {
         this.respostaCorreta = respostaCorreta;
     }
- 
+ public String seImprimir() {
+  String returno = "";
+      returno+=("\n" + this.getPergunta());
+      returno+=("\npeso: " + this.getPeso());
+      int j = 0;
+      String opcoes[];
+      opcoes = this.getOpcoes();
+      while (j<5) {
+        returno+= ("\nopcao " + j + ": " + opcoes[j]);
+         j++;
+      }
+      return returno;
+ }
 }

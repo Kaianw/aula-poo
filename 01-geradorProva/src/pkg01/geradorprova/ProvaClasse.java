@@ -45,36 +45,51 @@ public class ProvaClasse {
     }
     
     String obtemProvaImpressao() {
-        System.out.println("Data: " + this.data);
-        System.out.println("Local: " + this.local);
-        System.out.println("Peso: " + this.peso);
-        System.out.println("Disciplina: " + this.getNomeDisciplina());
-        System.out.println("Questoes discursivas: ");
-        int i = 0;
-        while (i < this.discursivas.length) {
-        System.out.println("\n" + this.discursivas[i].getPergunta());
-        System.out.println("criterios: " + this.discursivas[i].getCriteriosCorrecao());
-        System.out.println("peso: " + this.discursivas[i].getPeso());
-        i++;
-        }
-        System.out.println("\nQuestoes objetivas: ");
-        int k = 0;
+        String returno = "";
+        returno +=("Data: " + this.data);
+        returno +=("\nLocal: " + this.local);
+        returno +=("\nPeso: " + this.peso);
+        returno +=("\nDisciplina: " + this.getNomeDisciplina());
+        returno +=("\nQuestoes discursivas: \n");
+        for (int i = 0;i<discursivas.length;i++) {
+            returno+=discursivas[i].seImprimir();
+            returno+="\n";
+                    }
+        returno += "Questoes objetivas: \n";
+        for (int i = 0;i<objetivas.length;i++) {
+            returno+=objetivas[i].seImprimir();
+            returno+="\n";
+                    }
+        return returno;
         
-        while (k < this.objetivas.length) {
         
-        System.out.println("\n" + this.objetivas[k].getPergunta());
-        System.out.println("peso: " + this.objetivas[k].getPeso());
-        int j = 0;
-        String opcoes[];
-        while (j<5) {
-           opcoes = this.objetivas[k].getOpcoes();
-           System.out.println("opcao " + j + ": " + opcoes[j]);
-           j++;
-        }
-        k++;
-        }
-       String hello = null;
-       return hello;
+        
+        
+//        int i = 0;
+//        while (i < this.discursivas.length) {
+//        System.out.println("\n" + this.discursivas[i].getPergunta());
+//        System.out.println("criterios: " + this.discursivas[i].getCriteriosCorrecao());
+//        System.out.println("peso: " + this.discursivas[i].getPeso());
+//        i++;
+//        }
+//        System.out.println("\nQuestoes objetivas: ");
+//        int k = 0;
+//        
+//        while (k < this.objetivas.length) {
+//        
+//        System.out.println("\n" + this.objetivas[k].getPergunta());
+//        System.out.println("peso: " + this.objetivas[k].getPeso());
+//        int j = 0;
+//        String opcoes[];
+//        while (j<5) {
+//           opcoes = this.objetivas[k].getOpcoes();
+//           System.out.println("opcao " + j + ": " + opcoes[j]);
+//           j++;
+//        }
+//        k++;
+//        }
+//       String hello = null;
+//       return hello;
     }
 
     public String getNomeDisciplina() {
