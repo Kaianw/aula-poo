@@ -28,11 +28,12 @@ public class Objetiva extends Questao {
   String returno = "";
       returno+=("\n" + this.getPergunta());
       returno+=("\npeso: " + this.getPeso());
+      returno+=("\n");
       int j = 0;
       String opcoes[];
       opcoes = this.getOpcoes();
       while (j<5) {
-        returno+= ("\nopcao " + j + ": " + opcoes[j]);
+        returno+= ("\nopcao " + (j+1) + ": " + opcoes[j]);
          j++;
       }
       return returno;

@@ -9,28 +9,27 @@ import java.util.ArrayList;
 
 public class ProvaClasse {
 
-    public Discursiva[] getDiscursivas() {
+    public ArrayList<Discursiva> getDiscursivas() {
         return discursivas;
     }
 
-    public void setDiscursivas(Discursiva[] discursivas) {
+    public void setDiscursivas(ArrayList<Discursiva> discursivas) {
         this.discursivas = discursivas;
     }
 
-    public Objetiva[] getObjetivas() {
+    public ArrayList<Objetiva> getObjetivas() {
         return objetivas;
     }
 
-    public void setObjetivas(Objetiva[] objetivas) {
+    public void setObjetivas(ArrayList<Objetiva> objetivas) {
         this.objetivas = objetivas;
     }
-
     private String nomeDisciplina;
     private int peso;
     private String local = "Lab 3 - Bloco B6";
     private String data = "amanha eu te conto";
-    private Discursiva[] discursivas;
-    private Objetiva[] objetivas;
+    private ArrayList<Discursiva> discursivas;
+    private ArrayList<Objetiva> objetivas;
     
     
     public ProvaClasse() {
@@ -50,14 +49,14 @@ public class ProvaClasse {
         returno +=("\nLocal: " + this.local);
         returno +=("\nPeso: " + this.peso);
         returno +=("\nDisciplina: " + this.getNomeDisciplina());
-        returno +=("\nQuestoes discursivas: \n");
-        for (int i = 0;i<discursivas.length;i++) {
-            returno+=discursivas[i].seImprimir();
+        returno +=("\n\nQuestoes discursivas: \n");
+        for (int i = 0;i<getDiscursivas().size();i++) {
+            returno+=getDiscursivas().get(i).seImprimir();
             returno+="\n";
                     }
-        returno += "Questoes objetivas: \n";
-        for (int i = 0;i<objetivas.length;i++) {
-            returno+=objetivas[i].seImprimir();
+        returno += "\nQuestoes objetivas: \n";
+        for (int i = 0;i<getObjetivas().size();i++) {
+            returno+=getObjetivas().get(i).seImprimir();
             returno+="\n";
                     }
         return returno;
