@@ -6,6 +6,7 @@
 package pkg01.geradorprova;
 
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 public class ProvaClasse {
 
@@ -46,18 +47,18 @@ public class ProvaClasse {
     String obtemProvaImpressao() {
         String returno = "";
         returno +=("Data: " + this.data);
-        returno +=("\nLocal: " + this.local);
-        returno +=("\nPeso: " + this.peso);
-        returno +=("\nDisciplina: " + this.getNomeDisciplina());
-        returno +=("\n\nQuestoes discursivas: \n");
+        returno +=("\r\nLocal: " + this.local);
+        returno +=("\r\nPeso: " + this.peso);
+        returno +=("\r\nDisciplina: " + this.getNomeDisciplina());
+        returno +=("\r\n\nQuestoes discursivas: \n");
         for (int i = 0;i<getDiscursivas().size();i++) {
             returno+=getDiscursivas().get(i).seImprimir();
-            returno+="\n";
+            returno+="\r\n";
                     }
-        returno += "\nQuestoes objetivas: \n";
+        returno += "\r\nQuestoes objetivas: \n";
         for (int i = 0;i<getObjetivas().size();i++) {
             returno+=getObjetivas().get(i).seImprimir();
-            returno+="\n";
+            returno+="\r\n";
                     }
         return returno;
         

@@ -17,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class GeradorProva {
 
@@ -31,19 +32,16 @@ public class GeradorProva {
         String perguntar = "";
         Discursiva obj = new Discursiva();
         while (temp.equals("")) {
-            System.out.println("\nDigite a pergunta: ");
-            temp = vrau.nextLine();
+            temp = JOptionPane.showInputDialog(null, "\nDigite a pergunta: ");
         }
         obj.setPergunta(temp);
         temp = "";
         doubleTemp = 0;
         while (doubleTemp <= 0) {
             try {
-                System.out.println("\nDigite o peso da questao: ");
-                doubleTemp = vrau.nextDouble();
+                doubleTemp = Double.parseDouble(JOptionPane.showInputDialog(null, "\nDigite o peso da questao: "));
             } catch (InputMismatchException error) {
-                System.out.println("Erro: apenas numeros");
-                vrau.nextLine();
+                JOptionPane.showConfirmDialog(null, "Erro: apenas numeros");
             }
         }
         obj.setPeso(doubleTemp);
@@ -51,10 +49,9 @@ public class GeradorProva {
 
         while (temp.equals("")) {
             vrau.nextLine();
-            System.out.println("\nDigite os criterios de avaliacao: ");
-            temp = vrau.nextLine();
-            obj.setCriteriosCorrecao(temp);
+            temp = JOptionPane.showInputDialog(null, "\nDigite os criterios de avaliacao: ");
         }
+                    obj.setCriteriosCorrecao(temp);
         temp = "";
         arraylist.add(obj);
         return arraylist;
@@ -68,20 +65,16 @@ public class GeradorProva {
         String vetorOpcoes[] = new String[5];
         Objetiva obj = new Objetiva();
         while (temp.equals("")) {
-            System.out.println("\nDigite a pergunta: ");
-            temp = vrau.nextLine();
+            temp = JOptionPane.showInputDialog(null, "\nDigite a pergunta: ");
         }
         obj.setPergunta(temp);
         temp = "";
 
         while (doubleTemp <= 0) {
             try {
-                System.out.println("\nDigite o peso da questao: ");
-                doubleTemp = vrau.nextDouble();
-                vrau.nextLine();
+                doubleTemp = Double.parseDouble(JOptionPane.showInputDialog(null, "\nDigite o peso da questao: "));
             } catch (InputMismatchException error) {
-                System.out.println("Erro: apenas numeros");
-                vrau.nextLine();
+                JOptionPane.showConfirmDialog(null, "Erro: apenas numeros");
             }
         }
         obj.setPeso(doubleTemp);
@@ -91,8 +84,7 @@ public class GeradorProva {
         while (j != 5) {
 
             while (temp.equals("")) {
-                System.out.println("\nDigite a opcao numero(" + (j + 1) + "): ");
-                temp = vrau.nextLine();
+               temp = JOptionPane.showInputDialog(null, "\nDigite a opcao numero(" + (j + 1) + "): ");
             }
             obj.setOpcoes(vetorOpcoes);
             vetorOpcoes[j] = temp;
@@ -102,13 +94,10 @@ public class GeradorProva {
         intTemp = 0;
         while (intTemp <= 0 || intTemp > 5) {
             try {
-                System.out.println("\nDigite o numero da questao correta: ");
-                intTemp = vrau.nextInt();
-                vrau.nextLine();
+                intTemp = Integer.parseInt(JOptionPane.showInputDialog(null, "\nDigite o numero da questao correta: "));
                 obj.setRespostaCorreta(intTemp);
             } catch (InputMismatchException error) {
-                System.out.println("Erro: apenas numeros");
-                vrau.nextLine();
+                JOptionPane.showConfirmDialog(null, "Erro: apenas numeros");
             }
         }
         arraylist.add(obj);
@@ -122,22 +111,19 @@ public class GeradorProva {
         ProvaClasse prova = new ProvaClasse();
 
         while (temp.equals("")) {
-            System.out.println("Digite a disciplina da prova: ");
-            temp = vrau.nextLine();
+            temp = JOptionPane.showInputDialog(null, "Digite a disciplina da prova: ");
         }
         prova.setNomeDisciplina(temp);
         temp = "";
 
         while (temp.equals("")) {
-            System.out.println("\nDigite o local da prova: ");
-            temp = vrau.nextLine();
+            temp = JOptionPane.showInputDialog(null, "\nDigite o local da prova: ");
         }
         prova.setLocal(temp);
         temp = "";
 
         while (temp.equals("")) {
-            System.out.println("\nDigite a data: ");
-            temp = vrau.nextLine();
+            temp = JOptionPane.showInputDialog(null, "\nDigite a data: ");
         }
         prova.setData(temp);
         temp = "";
@@ -145,12 +131,9 @@ public class GeradorProva {
         int intTemp = 0;
         while (intTemp <= 0) {
             try {
-                System.out.println("\nDigite o peso da prova: ");
-                intTemp = vrau.nextInt();
-                vrau.nextLine();
+                intTemp = Integer.parseInt(JOptionPane.showInputDialog(null, "\nDigite o peso da prova: "));
             } catch (InputMismatchException error) {
-                System.out.println("Erro: apenas numeros");
-                vrau.nextLine();
+                JOptionPane.showConfirmDialog(null, "Erro: apenas numeros");
             }
         }
         prova.setPeso(intTemp);
@@ -175,8 +158,7 @@ public class GeradorProva {
             boolean funcionou = true;
             do {
             funcionou = true;
-            System.out.println("\nDigite O para adicionar uma questao objetiva, ou D para adicionar uma questao discursiva: ");
-            temp = vrau.nextLine();
+            temp = JOptionPane.showInputDialog(null, "\nDigite O para adicionar uma questao objetiva, ou D para adicionar uma questao discursiva: ");
             if (temp.equals("D") || temp.equals("d")) {
                 vetorDiscursivas = adicionarQuestaoDiscursiva(vetorDiscursivas);
             }
@@ -188,8 +170,7 @@ public class GeradorProva {
             } while (funcionou==false);
             funcionou = false;
             do {
-            System.out.println("\nQuer adicionar mais uma questao? (digite S para sim, N para nao");
-            temp = vrau.nextLine();
+            temp = JOptionPane.showInputDialog(null, "\nQuer adicionar mais uma questao? (digite S para sim, N para nao");
             if (temp.equals("S") || temp.equals("s") || temp.equals("n") || temp.equals("N"))
                 funcionou=true;
             } while (funcionou==false);
@@ -208,15 +189,15 @@ public class GeradorProva {
 //                vrau.nextLine();
 //            }
 //        }
-        
-        System.out.println("\n");
         System.out.println(prova.obtemProvaImpressao());
-        Path arquivo = Paths.get("ProvaImpressa.txt");
+        temp = JOptionPane.showInputDialog(null, "\nDigite o nome do arquivo onde a prova sera salva: ");
+        temp+=".txt";
+        Path arquivo = Paths.get(temp);
         byte[] provaEmBytes = prova.obtemProvaImpressao().getBytes();
         try {
             Files.write(arquivo,provaEmBytes);
         } catch (IOException ex) {
-            System.out.println("nao foi possivel salvar no arquivo ProvaImpressa.txt");
+            JOptionPane.showConfirmDialog(null, "nao foi possivel salvar no arquivo ProvaImpressa.txt");
         }
     }
 

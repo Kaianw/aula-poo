@@ -26,14 +26,14 @@ public class Objetiva extends Questao {
     }
  public String seImprimir() {
   String returno = "";
-      returno+=("\n" + this.getPergunta());
-      returno+=("\npeso: " + this.getPeso());
-      returno+=("\n");
+      returno+=("\r\n" + this.getPergunta());
+      returno+=("\r\npeso: " + this.getPeso());
+      returno+=("\r\n");
       int j = 0;
       String opcoes[];
       opcoes = this.getOpcoes();
       while (j<5) {
-        returno+= ("\nopcao " + (j+1) + ": " + opcoes[j]);
+        returno+= ("\r\nopcao " + (j+1) + ": " + opcoes[j]);
          j++;
       }
       return returno;

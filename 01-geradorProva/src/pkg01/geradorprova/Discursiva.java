@@ -17,9 +17,9 @@ public class Discursiva extends Questao {
     }
     public String seImprimir() {
         String returno = "";
-        returno+=("\n" + this.getPergunta());
-        returno+=("\ncriterios: " + this.getCriteriosCorrecao());
-        returno+=("\npeso: " + this.getPeso());
+        returno+=("\r\n" + this.getPergunta());
+        returno+=("\r\ncriterios: " + this.getCriteriosCorrecao());
+        returno+=("\r\npeso: " + this.getPeso());
         return returno;
     }
 }
