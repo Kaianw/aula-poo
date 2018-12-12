@@ -23,7 +23,9 @@ public class abastecimentoDao {
             avEmString += aSerSalva.getData() + ";";
             avEmString += aSerSalva.getKm() + ";";
             avEmString += aSerSalva.getLitro() + ";";
-            avEmString += aSerSalva.getPosto() + "\n";
+            avEmString += aSerSalva.getPosto() + ";";
+            avEmString += aSerSalva.getLat() + ";";
+            avEmString += aSerSalva.getLongi() + "\n";
             File refArquivo = new File(c.getFilesDir().getPath() + NOME_ARQUIVO);
             try {
                 FileWriter escritor = new FileWriter(refArquivo, true);
@@ -46,11 +48,13 @@ public class abastecimentoDao {
             while((definicaoPosto = leitorDeLinha.readLine()) != null){
                 String[] partesDaLinha = definicaoPosto.split(";");
                 abastecimento daVez = new abastecimento();
-                //daVez.setDisciplina( partesDaLinha[3] );
                 daVez.setData( partesDaLinha[0] );
                 daVez.setKm( Double.parseDouble(partesDaLinha[1]) );
                 daVez.setLitro( Double.parseDouble(partesDaLinha[2]) );
                 daVez.setPosto(partesDaLinha[3]);
+                daVez.setLat(Double.parseDouble(partesDaLinha[4]));
+                daVez.setLongi(Double.parseDouble(partesDaLinha[5]));
+
                 cacheAbastecimentos.add(daVez);
             }
 

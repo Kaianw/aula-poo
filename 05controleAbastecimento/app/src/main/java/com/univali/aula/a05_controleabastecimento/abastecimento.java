@@ -7,6 +7,8 @@ public class abastecimento implements Serializable {
     private String posto;
     private double litro;
     private double km;
+    private double lat;
+    private double longi;
 
 
     public String getData() {
@@ -39,5 +41,21 @@ public class abastecimento implements Serializable {
 
     public void setKm(double km) {
         this.km = km;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLongi() {
+        return longi;
+    }
+
+    public void setLongi(double longi) {
+        this.longi = longi;
     }
 }

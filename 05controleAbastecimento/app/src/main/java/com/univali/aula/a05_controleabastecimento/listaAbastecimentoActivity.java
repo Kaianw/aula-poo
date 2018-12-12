@@ -47,6 +47,13 @@ public class listaAbastecimentoActivity extends AppCompatActivity {
             Intent intencao = new Intent(this.getApplicationContext(), adicionarNovoItem.class);
             startActivityForResult(intencao, RC_ADICIONAR_POSTO);
     }
+
+    public void onClickMapa(View click) {
+
+        Intent intencao = new Intent(this.getApplicationContext(), mapaAbastecimentos.class);
+        startActivity(intencao);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

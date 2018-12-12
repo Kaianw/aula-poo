@@ -1,5 +1,13 @@
 package com.univali.aula.a05_controleabastecimento;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +18,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.security.Permission;
+import java.security.Permissions;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,8 +100,13 @@ public class adicionarNovoItem extends AppCompatActivity {
                 novo.setKm(kmDouble);
                 novo.setData(dataString);
                 novo.setPosto(list.get(spinner_1.getSelectedItemPosition()));
-
-
+                LocationManager locationManager = (LocationManager)
+                        getSystemService(Context.LOCATION_SERVICE);
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(adicionarNovoItem.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                }
+                novo.setLat(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude());
+                novo .setLongi(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude());
                 if (abastecimentoDao.salvar(this.getApplicationContext(), novo) == true) {
                     setResult(1);
                     finish();
